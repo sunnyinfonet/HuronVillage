@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+  <thead "thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item Code</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Amount</th>
+      <th scope="col class="text-end">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+    {{#each rows}}
+
+    <tr>
+      <th scope="row">{{this.itemID}}</th>
+      <td>{{this.itemCode}}</td>
+      <td>{{this.itemName}}</td>
+      <td>{{this.sell_price}}</td>
+      <td>{{this.sell_qnty}}</td>
+      <td>{{this.net_amount}}</td>
+      <td class="text-start">
+      <a href="/{{this.itemID}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i>Delete</a>
+    </td>
+    </tr>
+    {{else}}
+
+    {{/each}}
+  </tbody>
+</table>

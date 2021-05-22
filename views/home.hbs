@@ -1,0 +1,90 @@
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+ <script>
+var input = document.getElementById("item_code");
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("btn_add").click();
+        }
+    }
+});
+</script>
+<script>
+  function changeVal()
+{
+var inputval = document.getElementById("net_amount").value;
+var inputtval = document.getElementById("amt_recd").value;
+var amtbal = inputval-inputtval;
+//document.getElementById("amt_bal").setAttribute('value', amtbal);   
+document.forms['idform']['amt_bal'].value = amtbal;
+}
+
+
+</script>
+
+
+
+
+
+<div class="container width:960px">
+  <div class="row">
+    <div class="col-sm-10">
+
+
+ <form class = "row g-3 needs-validation" method="POST" action="/posSubmit" novalidate> 
+  {{> home-form}}           
+  {{> home-grid}} 
+   <div>
+      <button class="btn btn-outlined-primary disabled" id="btn_add" type="submit"></button>
+  </div>  
+</form>
+    </div>
+
+<div class="col-sm-2 p-3 mb-2 bg-secondary text-white">
+
+{{#each posts}}
+  
+  <form class = "row g-3 needs-validation" name="idform" mentod="POST" action="/posEntry" novalidate> 
+      <div>
+        <label for="floatingInput">Gross Amount</label>
+        <input type="text" class="form-control" disabled id="floatingInput" placeholder="Amount" value="{{this.amount}}" name="item_amount">
+      </div>
+
+      <div>
+        <label for="floatingInput">Tax</label>
+        <input type="text" class="form-control" disabled id="floatingInput" placeholder="Tax" value="{{this.tax}}" name="item_tax">
+      </div>
+
+      <div>
+        <label for="floatingInput">Net Amount</label>
+        <input type="text" class="form-control" disabled id="net_amount" placeholder="Net Amount"  value="{{this.netamount}}" name="item_netamount">
+      </div>
+
+      <div>
+        <label for="floatingInput">Received</label>
+        <input type="text" class="form-control" id="amt_recd" placeholder="Received" value="{{this.sell_qnty}}" name="amt_recd">
+        <button type="button" onclick="changeVal()">Calculate</button>   
+      </div>
+
+      <div>
+        <label for="floatingInput">Balance</label>
+        <input type="text" class="form-control" disabled id="amt_bal" placeholder="Balance" value="" name="amt_bal">
+      </div>
+
+      <div style="padding-top: 20px;">
+      <button class="btn btn-lg btn-primary" id="btn_submit" type="submit">Submit</button>
+      </div>
+    </div>
+{{/each}}
+
+  </div>
+  </form>
+ 
+  
+</div> 

@@ -1,0 +1,51 @@
+
+<div class="col-4">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="First Name" value="{{this.itemCode}}" name="item_code">
+  <label for="floatingInput">Item Code</label>
+</div>
+</div>
+<div class="col-4">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" value="{{this.itemName}}" placeholder="Last Name" name="item_name">
+  <label for="floatingInput">Item Name</label>
+</div>
+</div>
+
+<div class="col-4">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Email" value="{{this.itemDescription}}" name="item_description">
+  <label for="floatingInput">Item Description</label>
+</div>
+</div>
+
+<div class="col-4">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Price" value="{{this.sellPrice}}" name="price">
+  <label for="floatingInput">Item Price</label>
+</div>
+</div>
+<div class="col-4">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Quantity" value="{{this.stockInhand}}" name="item_qnty">
+  <label for="floatingInput">Quantity</label>
+</div>
+</div>
+
+<div class="col-4">
+<div class="form-floating">
+  <select class="form-select" name = "item_type" id="floatingSelect" aria-label="Floating label select example">
+    <option selected>Taxable</option>
+    <option value="1">Taxable</option>
+    <option value="2">Grocery</option>
+    <option value="3">Smoke</option>
+    <option value="4"> OLG </option>
+  </select>
+  <label for="floatingSelect">Item Type</label>
+</div>
+</div>
+
+<div class="col-12 d-grid">
+    <button class="btn btn-primary" type="submit">Submit</button>
+    
+</div>

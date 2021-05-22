@@ -1,0 +1,22 @@
+
+
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+<div class="container">
+  
+  <div class="row border border-primary text-cente">
+  <div class="col-12"><h1>ITEM MASTER</h1></div>
+</div>
+  <form class = "row g-3 pb10 needs-validation" method="POST" action="/addItem" novalidate> 
+{{> item-form}}
+
+{{> item-grid}}
+
+</form>
+</div>
+

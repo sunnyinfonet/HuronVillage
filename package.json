@@ -1,0 +1,26 @@
+{
+  "name": "huronvillage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-pjax": "0.0.1",
+    "mathjs": "^9.4.0",
+    "mysql": "^2.18.1",
+    "node-popup": "^0.1.14",
+    "popups": "^1.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

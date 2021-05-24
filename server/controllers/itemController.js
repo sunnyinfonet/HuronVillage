@@ -57,6 +57,62 @@ exports.view = (req, res) => {
 }
 
 exports.posSubmit = (req, res) => {
+
+    var posday =req.body.btnadd;
+
+    if (posday === 'Submit') {
+        //update action
+        pool.getConnection((err, connection) => {
+            if(err) throw err;
+            // use connection
+                    let sql = 'insert into pos_day SELECT * FROM pos_entry';
+                    connection.query(sql, (err, rows) => {
+                       if(!err){
+                           console.log("data saved");
+ 
+                            }
+                        else{
+                            console.log(err);
+                            }
+
+                        });
+                    let sql1 = 'delete from pos_entry';
+                    connection.query(sql1, (err, rows) => {
+
+                            if(!err){
+                            console.log("Data Saved")
+                            }
+                            else{
+                            console.log(err);
+                            }
+          
+                        console.log('data from table: \n', rows);
+                    });
+        });
+            
+        pool.getConnection((err, connection) => {
+            if(err) throw err;
+            console.log('connected as ID' + connection.threadId);
+            // use connection
+            let sql2 = 'SELECT * FROM pos_entry';
+            connection.query(sql2, (err, rows) => {
+                connection.release();
+                if(!err){
+                        res.redirect('/');
+                }
+                else{
+                    console.log(err);
+                }
+                console.log('data from table: \n', rows);
+            });
+        });
+     
+    } 
+    
+    
+else {
+
+
 var { item_code, item_name, item_type, price, item_qnty} = req.body;
 var sideData = [];
 if (item_qnty == '')
@@ -134,7 +190,7 @@ if (item_qnty == '')
 
 
 }
-
+}
 
 
 // Adding new Item
@@ -254,9 +310,13 @@ exports.updateItem = (req, res) => {
 }
 
 
+// on submit button pos added to the database
 
-// on submit button user added to the database
+
+// on submit button pos added to the database
+
 exports.addItem = (req, res) => {
+
 const { item_code, item_name, item_description, item_type, price, item_qnty} = req.body;
 
 if (item_code === '' || item_name === '' || price === '' || item_qnty === '' )

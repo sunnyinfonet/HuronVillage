@@ -178,6 +178,16 @@ if (item_qnty == '')
                     }
                     else
                     {
+
+
+
+
+
+
+
+
+
+
                         console.log(err);
                     }
 
@@ -202,7 +212,7 @@ exports.form = (req, res) => {
             if(err) throw err;
             console.log('connected as ID' + connection.threadId);
             // use connection
-            let sql = 'SELECT * FROM itemmaster order by itemID desc limit 10';
+            let sql = 'SELECT * FROM itemmaster';
             connection.query(sql, (err, rows) => {
                 connection.release();
                 if(!err){
@@ -227,7 +237,7 @@ exports.showItem = (req, res) => {
             if(err) throw err;
             console.log('connected as ID' + connection.threadId);
             // use connection
-            let sql = 'SELECT * FROM itemmaster  order by itemID desc limit 10';
+            let sql = 'SELECT * FROM itemmaster';
             connection.query(sql, (err, rows) => {
                 connection.release();
                 if(!err){
@@ -283,7 +293,7 @@ exports.updateItem = (req, res) => {
                         connection.query(sql, [stockinhand, item_code], (err, rows) => {
  
                             if(!err){
-                                let sql = 'SELECT * FROM itemmaster  order by itemID desc limit 10';
+                                let sql = 'SELECT * FROM itemmaster';
                                 connection.query(sql, (err, rows) => {
                                     connection.release();
                                     if(!err){
@@ -344,7 +354,7 @@ else
                     let sql = 'INSERT INTO itemmaster SET itemCode = ?, itemName = ?, itemDescription = ?, sellPrice=?, stockInhand = ?, itemType=?';
                     connection.query(sql, [item_code, item_name, item_description, price, item_qnty, item_type], (err, rows) => {
                         if(!err){
-                            let sql = 'SELECT * FROM itemmaster  order by itemID desc limit 10';
+                            let sql = 'SELECT * FROM itemmaster';
                             connection.query(sql, (err, rows) => {
                                 connection.release();
                                 if(!err){
@@ -568,7 +578,7 @@ exports.edit_master = (req, res) => {
 //            connection.release();
             if(!err){
 
-                let sql = 'SELECT * FROM itemmaster  order by itemID desc limit 10';
+                let sql = 'SELECT * FROM itemmaster';
                 connection.query(sql, (err, rows) => {
                     connection.release();
                     if(!err){

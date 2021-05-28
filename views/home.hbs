@@ -5,6 +5,7 @@
 </div>
 {{/if}}
 
+
  <script>
 var input = document.getElementById("item_code");
 input.addEventListener("keyup", function(event) {
@@ -13,6 +14,7 @@ input.addEventListener("keyup", function(event) {
         document.getElementById("btn_add").click();
         }
     }
+document.getElementById.focus();
 });
 </script>
 <script>
@@ -20,7 +22,8 @@ input.addEventListener("keyup", function(event) {
 {
 var inputval = document.getElementById("net_amount").value;
 var inputtval = document.getElementById("amt_recd").value;
-var amtbal = inputval-inputtval;
+var amtbal = inputtval-inputval;
+amtbal = amtbal.toFixed(2);
 //document.getElementById("amt_bal").setAttribute('value', amtbal);   
 document.forms['idform']['amt_bal'].value = amtbal;
 }
@@ -37,7 +40,7 @@ document.forms['idform']['amt_bal'].value = amtbal;
     <div class="col-sm-10">
 
 
- <form class = "row g-3 needs-validation" method="POST" action="/posSubmit" novalidate> 
+ <form class = "row g-3 needs-validation" method="POST" id ="idform" action="/posSubmit" novalidate> 
   {{> home-form}}           
   {{> home-grid}} 
    <div>

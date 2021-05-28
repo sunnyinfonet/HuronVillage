@@ -1,4 +1,6 @@
-
+<script>
+	document.getElementById('iditem_code').focus();
+</script>
 
 {{#if alert}}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,7 +19,7 @@
 
 <div class="col-4">
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="First Name" value="{{this.itemCode}}" name="item_code">
+  <input type="text" class="form-control" id="iditem_code" autofocus="autofocus" placeholder="First Name" value="{{this.itemCode}}" name="item_code">
   <label for="floatingInput">Item Code</label>
 </div>
 </div>

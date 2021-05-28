@@ -8,7 +8,7 @@ const pjax = require('express-pjax');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 80;
 
 // Parser Middleware
 app.use(bodyParser.urlencoded({extended: false}));
